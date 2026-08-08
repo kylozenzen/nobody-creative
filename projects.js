@@ -27,7 +27,7 @@ window.NOBODY_PROJECTS = [
     tags: 'WEB GAME / MOBILE-FRIENDLY',
     visual: 'plot',
     featured: true,
-    url: ''
+    url: 'https://plot-twisted.netlify.app'
   },
   {
     caseNumber: '002',
@@ -57,7 +57,7 @@ window.NOBODY_PROJECTS = [
     tags: 'PRODUCTIVITY / LIFE',
     visual: 'steady',
     featured: false,
-    url: ''
+    url: 'https://steady-app.netlify.app'
   },
   {
     caseNumber: '004',
