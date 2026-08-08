@@ -30,7 +30,7 @@ window.NOBODY_PROJECTS = [
     productTags: ['TRIVIA', 'WEB GAME', 'MOBILE-FRIENDLY'],
     stack: ['HTML', 'CSS', 'JavaScript', 'PWA'],
     visual: 'plot',
-    featured: true,
+    featured: false,
     actionLabel: 'PLAY',
     url: 'https://plot-twisted.netlify.app',
     repoUrl: 'https://github.com/kylozenzen/plot-twisted-2026'
@@ -91,6 +91,24 @@ window.NOBODY_PROJECTS = [
   },
   {
     caseNumber: '005',
+    caseType: 'TOOL',
+    title: 'Project Uplink',
+    displayTitle: 'PROJECT<br>UPLINK',
+    categories: ['tool'],
+    meta: 'Streamer broadcast deck',
+    status: 'Live',
+    statusClass: 'status-live',
+    description: 'A local-first launch console for streamers to arm social channels, pull optional Twitch context, and broadcast going-live posts through Buffer from one tactical deck.',
+    productTags: ['STREAMER TOOL', 'BUFFER COMPANION', 'LOCAL-FIRST'],
+    stack: ['JavaScript', 'Buffer API', 'Twitch API', 'Netlify Functions'],
+    visual: 'uplink',
+    featured: false,
+    actionLabel: 'OPEN UPLINK',
+    url: 'https://projectuplink.netlify.app',
+    repoUrl: 'https://github.com/kylozenzen/buffer-uplink-gamer-tool'
+  },
+  {
+    caseNumber: '006',
     caseType: 'HUB',
     title: 'Nobody Arcade',
     displayTitle: 'NOBODY<br>ARCADE',
@@ -107,9 +125,9 @@ window.NOBODY_PROJECTS = [
     repoUrl: 'https://github.com/kylozenzen/nobodycreative-arcade'
   },
 
-  // Hidden from the current five-project lineup. Keep these around for future rotation.
+  // Hidden from the current six-project lineup. Keep these around for future rotation.
   {
-    caseNumber: '006',
+    caseNumber: '007',
     caseType: 'TOOL',
     title: 'Stamp',
     displayTitle: 'STAMP',
@@ -125,7 +143,7 @@ window.NOBODY_PROJECTS = [
     url: ''
   },
   {
-    caseNumber: '007',
+    caseNumber: '008',
     caseType: 'GAME',
     title: 'Whiteout',
     displayTitle: 'WHITEOUT',
@@ -141,7 +159,7 @@ window.NOBODY_PROJECTS = [
     url: ''
   },
   {
-    caseNumber: '008',
+    caseNumber: '009',
     caseType: 'EXPERIMENT',
     title: 'Breathlings',
     displayTitle: 'BREATHLINGS',
