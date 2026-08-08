@@ -109,6 +109,74 @@
   flex-wrap: wrap;
 }
 
+/* Uplink gets its own broadcast-console identity without competing with the card title. */
+.uplink-visual {
+  background: #0a1419;
+  color: white;
+}
+
+.uplink-visual::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(166,255,116,.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(166,255,116,.055) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.uplink-radar {
+  position: absolute;
+  right: 5%;
+  top: 14%;
+  width: 150px;
+  aspect-ratio: 1;
+  border: 2px solid #a6ff74;
+  border-radius: 50%;
+  opacity: .88;
+}
+
+.uplink-radar::before,
+.uplink-radar::after,
+.uplink-radar i {
+  content: "";
+  position: absolute;
+  border: 1px solid rgba(166,255,116,.55);
+  border-radius: 50%;
+  inset: 18%;
+}
+
+.uplink-radar::after { inset: 36%; }
+.uplink-radar i:nth-child(1) { inset: 49% 0 auto; height: 1px; border: 0; border-top: 1px solid rgba(166,255,116,.7); border-radius: 0; }
+.uplink-radar i:nth-child(2) { inset: 0 auto 0 49%; width: 1px; border: 0; border-left: 1px solid rgba(166,255,116,.7); border-radius: 0; }
+.uplink-radar i:nth-child(3) { inset: 9%; border-color: rgba(166,255,116,.18); }
+.uplink-radar b {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  right: 28%;
+  top: 31%;
+  border-radius: 50%;
+  background: var(--spark);
+  box-shadow: 0 0 0 5px rgba(255,90,0,.18);
+}
+
+.uplink-signal {
+  position: absolute;
+  right: 5%;
+  bottom: 9%;
+  display: grid;
+  gap: 3px;
+  text-align: right;
+  font-size: .55rem;
+  color: #a6ff74;
+  letter-spacing: .04em;
+}
+
+.uplink-visual .project-wordmark {
+  max-width: 68%;
+}
+
 /* The arcade cabinet is intentionally loud, just not louder than the title. */
 .arcade-visual .cabinet {
   right: 4%;
@@ -240,6 +308,16 @@
     grid-column: 1 / -1;
   }
 
+  .uplink-radar {
+    width: 122px;
+    right: 5%;
+    top: 18%;
+  }
+
+  .uplink-visual .project-wordmark {
+    max-width: 62%;
+  }
+
   .arcade-visual .cabinet {
     width: 118px;
     height: 168px;
@@ -296,6 +374,20 @@
 
   .project-link:only-child {
     grid-column: auto;
+  }
+
+  .uplink-radar {
+    width: 104px;
+    top: 22%;
+  }
+
+  .uplink-signal {
+    font-size: .49rem;
+  }
+
+  .uplink-visual .project-wordmark {
+    max-width: 61%;
+    font-size: clamp(3rem, 16vw, 4rem);
   }
 
   .arcade-visual .cabinet {
