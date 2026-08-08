@@ -42,7 +42,7 @@ window.NOBODY_PROJECTS = [
     tags: 'PRODUCT / FITNESS',
     visual: 'moved',
     featured: false,
-    url: ''
+    url: 'https://moved-app.netlify.app'
   },
   {
     caseNumber: '003',
