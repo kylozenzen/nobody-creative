@@ -8,9 +8,11 @@
   2. Give it a unique caseNumber.
   3. Choose one or more categories: game, app, tool, experiment.
   4. Pick a visual key that already exists in script.js/CSS, or add a new visual renderer later.
-  5. Add a url when the project is ready to click through.
+  5. Add a url when the project is live, plus repoUrl when the source is public.
+  6. Add a short stack array for the tech shown on the card.
 
   featured: true makes the card span two columns on desktop.
+  hidden: true keeps the project data/code available without rendering a card.
 */
 
 window.NOBODY_PROJECTS = [
@@ -21,13 +23,15 @@ window.NOBODY_PROJECTS = [
     displayTitle: 'PLOT<br>TWISTED',
     categories: ['game'],
     meta: 'Movie guessing game',
-    status: 'Launching next',
-    statusClass: 'status-orange',
+    status: 'Live',
+    statusClass: 'status-live',
     description: 'Terrible movie descriptions. Suspicious VHS tapes. One job: figure out what the hell the movie is.',
     tags: 'WEB GAME / MOBILE-FRIENDLY',
+    stack: ['HTML', 'CSS', 'JavaScript', 'PWA'],
     visual: 'plot',
     featured: true,
-    url: 'https://plot-twisted.netlify.app'
+    url: 'https://plot-twisted.netlify.app',
+    repoUrl: 'https://github.com/kylozenzen/plot-twisted-2026'
   },
   {
     caseNumber: '002',
@@ -36,13 +40,15 @@ window.NOBODY_PROJECTS = [
     displayTitle: 'MOVED',
     categories: ['app'],
     meta: 'Fitness tracker',
-    status: 'Beta prep',
-    statusClass: '',
+    status: 'Live',
+    statusClass: 'status-live',
     description: 'A fitness tracker built around showing up, doing the work, and making progress visible without turning your life into a spreadsheet.',
     tags: 'PRODUCT / FITNESS',
+    stack: ['HTML', 'CSS', 'JavaScript', 'PWA'],
     visual: 'moved',
     featured: false,
-    url: 'https://moved-app.netlify.app'
+    url: 'https://moved-app.netlify.app',
+    repoUrl: 'https://github.com/kylozenzen/power-rangers-move'
   },
   {
     caseNumber: '003',
@@ -51,13 +57,15 @@ window.NOBODY_PROJECTS = [
     displayTitle: 'STEADY',
     categories: ['app'],
     meta: 'Life organizer',
-    status: 'Optimization',
-    statusClass: '',
+    status: 'Live',
+    statusClass: 'status-live',
     description: 'Daily structure without the productivity guilt trip. Tasks, routines, planning, and the boring stuff made pleasantly usable.',
     tags: 'PRODUCTIVITY / LIFE',
+    stack: ['HTML', 'CSS', 'JavaScript', 'PWA'],
     visual: 'steady',
     featured: false,
-    url: 'https://steady-app.netlify.app'
+    url: 'https://steady-app.netlify.app',
+    repoUrl: 'https://github.com/kylozenzen/steady-as-she-goes'
   },
   {
     caseNumber: '004',
@@ -70,12 +78,33 @@ window.NOBODY_PROJECTS = [
     statusClass: 'status-live',
     description: 'A social publishing sidekick for writing, splitting, repurposing, planning, and getting posts out of your head and into the world.',
     tags: 'OPEN BUILD',
+    stack: ['JavaScript', 'Buffer API', 'Netlify Functions', 'Upstash'],
     visual: 'postiq',
     featured: false,
-    url: 'https://postiq.netlify.app/'
+    url: 'https://postiq.netlify.app/',
+    repoUrl: 'https://github.com/kylozenzen/post-iq'
   },
   {
     caseNumber: '005',
+    caseType: 'HUB',
+    title: 'Nobody Arcade',
+    displayTitle: 'NOBODY<br>ARCADE',
+    categories: ['game', 'experiment'],
+    meta: 'Game hub',
+    status: 'Coming soon',
+    statusClass: 'status-orange',
+    description: 'The home for every tiny browser game that gets built instead of sleeping at a reasonable hour.',
+    tags: 'HUB / GAME LAB',
+    stack: ['HTML', 'CSS', 'JavaScript', 'PWA'],
+    visual: 'arcade',
+    featured: false,
+    url: '',
+    repoUrl: 'https://github.com/kylozenzen/nobodycreative-arcade'
+  },
+
+  // Hidden from the current five-project lineup. Keep these around for future rotation.
+  {
+    caseNumber: '006',
     caseType: 'TOOL',
     title: 'Stamp',
     displayTitle: 'STAMP',
@@ -87,10 +116,11 @@ window.NOBODY_PROJECTS = [
     tags: 'SOCIAL / WORKFLOW',
     visual: 'stamp',
     featured: false,
+    hidden: true,
     url: ''
   },
   {
-    caseNumber: '006',
+    caseNumber: '007',
     caseType: 'GAME',
     title: 'Whiteout',
     displayTitle: 'WHITEOUT',
@@ -102,10 +132,11 @@ window.NOBODY_PROJECTS = [
     tags: 'ARCADE / MOBILE',
     visual: 'whiteout',
     featured: false,
+    hidden: true,
     url: ''
   },
   {
-    caseNumber: '007',
+    caseNumber: '008',
     caseType: 'EXPERIMENT',
     title: 'Breathlings',
     displayTitle: 'BREATHLINGS',
@@ -117,21 +148,7 @@ window.NOBODY_PROJECTS = [
     tags: 'KIDS / WELLNESS',
     visual: 'breath',
     featured: false,
-    url: ''
-  },
-  {
-    caseNumber: '008',
-    caseType: 'HUB',
-    title: 'Nobody Arcade',
-    displayTitle: 'NOBODY<br>ARCADE',
-    categories: ['game', 'experiment'],
-    meta: 'Game hub',
-    status: 'After Plot Twisted',
-    statusClass: '',
-    description: 'The eventual home for every tiny browser game that gets built instead of sleeping at a reasonable hour.',
-    tags: 'HUB / GAME LAB',
-    visual: 'arcade',
-    featured: false,
+    hidden: true,
     url: ''
   }
 ];

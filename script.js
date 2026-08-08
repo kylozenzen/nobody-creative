@@ -1,11 +1,20 @@
 const projectGrid = document.getElementById('projectGrid');
 
+function escapeHtml(value = '') {
+  return String(value)
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#039;');
+}
+
 function projectVisualMarkup(project) {
   const common = `<span class="case-tag mono">CASE ${project.caseNumber} / ${project.caseType}</span>`;
   const wordmark = `<div class="project-wordmark">${project.displayTitle}</div>`;
 
   const visuals = {
-    plot: `${common}<div class="vhs-stack" aria-hidden="true"><i></i><i></i><i></i></div>${wordmark}<span class="visual-sticker">NOW PLAYING-ish</span>`,
+    plot: `${common}<div class="vhs-stack" aria-hidden="true"><i></i><i></i><i></i></div>${wordmark}<span class="visual-sticker">NOW PLAYING</span>`,
     moved: `${common}<div class="rings" aria-hidden="true"><i></i><i></i><i></i></div>${wordmark}`,
     steady: `${common}<div class="steady-lines" aria-hidden="true"><i></i><i></i><i></i><i></i></div>${wordmark}`,
     postiq: `${common}<div class="terminal-lines mono" aria-hidden="true"><span>&gt; write</span><span>&gt; split</span><span>&gt; repurpose</span><span>&gt; ship_</span></div>${wordmark}`,
@@ -18,19 +27,52 @@ function projectVisualMarkup(project) {
   return visuals[project.visual] || `${common}${wordmark}`;
 }
 
+function projectStackMarkup(project) {
+  if (!project.stack?.length) return '';
+
+  const chips = project.stack
+    .map((item) => `<span class="tech-chip">${escapeHtml(item)}</span>`)
+    .join('');
+
+  return `
+    <div class="tech-stack" aria-label="${escapeHtml(project.title)} tech stack">
+      <span class="tech-stack-label mono">STACK</span>
+      <div class="tech-stack-list">${chips}</div>
+    </div>`;
+}
+
+function projectLinksMarkup(project) {
+  const links = [];
+
+  if (project.url) {
+    links.push(
+      `<a class="project-link project-link-primary" href="${escapeHtml(project.url)}" target="_blank" rel="noreferrer" aria-label="Open ${escapeHtml(project.title)} live site">LIVE SITE ↗</a>`
+    );
+  }
+
+  if (project.repoUrl) {
+    const label = project.url ? 'GITHUB ↗' : 'VIEW REPO ↗';
+    links.push(
+      `<a class="project-link" href="${escapeHtml(project.repoUrl)}" target="_blank" rel="noreferrer" aria-label="Open ${escapeHtml(project.title)} source on GitHub">${label}</a>`
+    );
+  }
+
+  if (!links.length) {
+    return `<div class="card-footer"><span class="mono">${escapeHtml(project.tags || '')}</span><span class="arrow" aria-hidden="true">→</span></div>`;
+  }
+
+  return `<div class="card-footer project-links">${links.join('')}</div>`;
+}
+
 function renderProjects(projects = []) {
   if (!projectGrid) return;
 
-  projectGrid.innerHTML = projects.map((project) => {
+  const visibleProjects = projects.filter((project) => !project.hidden);
+
+  projectGrid.innerHTML = visibleProjects.map((project) => {
     const statusClass = project.statusClass ? ` ${project.statusClass}` : '';
     const featuredClass = project.featured ? ' featured' : '';
     const categories = project.categories.join(' ');
-    const footerTag = project.url ? 'a' : 'div';
-    const footerAttrs = project.url
-      ? ` href="${project.url}" target="_blank" rel="noreferrer" aria-label="Open ${project.title}"`
-      : '';
-    const footerClass = project.url ? 'card-footer link-footer' : 'card-footer';
-    const arrow = project.url ? '↗' : '→';
 
     return `
       <article class="project-card${featuredClass}" data-category="${categories}">
@@ -38,10 +80,11 @@ function renderProjects(projects = []) {
           ${projectVisualMarkup(project)}
         </div>
         <div class="project-body">
-          <div class="project-meta"><span>${project.meta}</span><span class="status${statusClass}">${project.status}</span></div>
-          <h3>${project.title}</h3>
-          <p>${project.description}</p>
-          <${footerTag} class="${footerClass}"${footerAttrs}><span class="mono">${project.tags}</span><span class="arrow">${arrow}</span></${footerTag}>
+          <div class="project-meta"><span>${escapeHtml(project.meta)}</span><span class="status${statusClass}">${escapeHtml(project.status)}</span></div>
+          <h3>${escapeHtml(project.title)}</h3>
+          <p>${escapeHtml(project.description)}</p>
+          ${projectStackMarkup(project)}
+          ${projectLinksMarkup(project)}
         </div>
       </article>`;
   }).join('');
