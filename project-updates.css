@@ -1,43 +1,46 @@
-/* --- v1.2: five-project lineup, stack receipts, social links, and mobile polish --- */
+/* --- v1.3: project hierarchy + responsive optimization pass --- */
 
-/* LinkedIn gets a real button without competing with the newsletter CTA. */
-.nav-linkedin {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+/* Dark project art inherits white text. Case labels should always read like paper labels. */
+.case-tag {
+  color: var(--ink);
+  background: var(--paper);
+}
+
+/* Product tags answer "what is this?" before the technical stack answers "how was it built?" */
+.product-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 20px;
+}
+
+.product-chip {
   border: 1px solid var(--ink);
-  padding: 9px 12px;
-  background: white;
-  box-shadow: 3px 3px 0 var(--spark);
-  transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+  background: var(--paper);
+  padding: 6px 8px;
+  font: 700 .62rem "IBM Plex Mono", ui-monospace, monospace;
+  line-height: 1.05;
+  letter-spacing: .035em;
+  white-space: nowrap;
 }
 
-.nav a.nav-linkedin::after {
-  display: none;
-}
-
-.nav-linkedin:hover {
-  transform: translate(2px, 2px);
-  box-shadow: 1px 1px 0 var(--spark);
-  background: var(--paper-2);
-}
-
-/* Put the stack on the front of the card. No hover-flip gymnastics on mobile. */
 .tech-stack {
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 12px 14px;
   align-items: start;
-  margin-top: 22px;
-  padding-top: 16px;
+  margin-top: 16px;
+  padding-top: 14px;
   border-top: 1px solid var(--line);
 }
 
 .tech-stack-label {
   padding-top: 5px;
-  font-size: .62rem;
+  font-size: .58rem;
   font-weight: 700;
   letter-spacing: .08em;
+  color: #555;
+  white-space: nowrap;
 }
 
 .tech-stack-list {
@@ -47,19 +50,26 @@
 }
 
 .tech-chip {
-  border: 1px solid rgba(10,10,10,.45);
-  background: var(--paper);
+  border: 1px solid rgba(10,10,10,.32);
+  background: transparent;
   padding: 5px 7px;
-  font: 600 .62rem "IBM Plex Mono", ui-monospace, monospace;
+  font: 600 .58rem "IBM Plex Mono", ui-monospace, monospace;
   line-height: 1;
+  color: #4a4a4a;
   white-space: nowrap;
+}
+
+/* Keep actions visually anchored at the bottom of cards in the same row. */
+.project-body {
+  min-width: 0;
 }
 
 .project-links {
   justify-content: flex-start;
   flex-wrap: wrap;
   gap: 10px;
-  padding-top: 18px;
+  padding-top: 20px;
+  margin-top: auto;
 }
 
 .project-link {
@@ -90,8 +100,7 @@
   box-shadow: 4px 4px 0 var(--spark);
 }
 
-.project-link:focus-visible,
-.nav-linkedin:focus-visible {
+.project-link:focus-visible {
   outline: 3px solid var(--spark);
   outline-offset: 3px;
 }
@@ -100,58 +109,86 @@
   flex-wrap: wrap;
 }
 
+/* The arcade cabinet is intentionally loud, just not louder than the title. */
+.arcade-visual .cabinet {
+  right: 4%;
+  top: 17%;
+  width: 132px;
+  height: 190px;
+  padding: 11px;
+}
+
+.arcade-visual .cabinet .screen {
+  height: 100px;
+}
+
+.arcade-visual .project-wordmark {
+  max-width: 64%;
+  font-size: clamp(3.35rem, 5.15vw, 5.7rem);
+}
+
 @media (max-width: 1180px) {
   .site-header {
     gap: 16px;
   }
 
   .nav {
-    gap: 12px;
+    gap: 15px;
   }
 }
 
-@media (max-width: 980px) {
-  .nav a[href="#why"],
-  .nav a[href="#brand"] {
-    display: none;
+@media (max-width: 900px) and (min-width: 761px) {
+  .nav {
+    gap: 12px;
+    font-size: .8rem;
   }
 }
 
 @media (max-width: 760px) {
+  /* With Portfolio + LinkedIn moved to the footer, the mobile header can stay one compact row. */
   .site-header {
     align-items: center;
-    flex-wrap: wrap;
-    row-gap: 12px;
-    padding: 13px 20px 14px;
+    flex-wrap: nowrap;
+    gap: 12px;
+    padding: 12px 20px;
   }
 
   .brand-lockup {
-    width: 100%;
+    width: auto;
+    flex: 1 1 auto;
+    min-width: 0;
   }
 
   .nav {
-    width: 100%;
-    gap: 9px;
-  }
-
-  /* Base CSS hides non-CTA links on mobile; explicitly keep LinkedIn visible. */
-  .nav a.nav-linkedin {
-    display: inline-flex;
-  }
-
-  .nav-cta,
-  .nav-linkedin {
-    min-height: 42px;
-    padding: 9px 11px;
-    font-size: .72rem;
+    width: auto;
+    flex: 0 0 auto;
+    gap: 0;
   }
 
   .nav-cta {
-    flex: 1 1 165px;
+    min-height: 40px;
+    padding: 8px 10px;
+    font-size: .68rem;
+    white-space: nowrap;
   }
 
-  .nav-linkedin {
-    flex: 0 1 auto;
+  /* Filters become one swipeable row instead of eating vertical space. */
+  .filters {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin-inline: -20px;
+    padding-inline: 20px;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter {
+    flex: 0 0 auto;
   }
 
   .project-visual,
@@ -173,10 +210,15 @@
     margin-top: 17px;
   }
 
+  .product-tags {
+    margin-top: 18px;
+  }
+
   .tech-stack {
     grid-template-columns: 1fr;
     gap: 8px;
-    margin-top: 19px;
+    margin-top: 15px;
+    padding-top: 13px;
   }
 
   .tech-stack-label {
@@ -198,6 +240,23 @@
     grid-column: 1 / -1;
   }
 
+  .arcade-visual .cabinet {
+    width: 118px;
+    height: 168px;
+    right: 5%;
+    top: 20%;
+    padding: 9px;
+  }
+
+  .arcade-visual .cabinet .screen {
+    height: 87px;
+  }
+
+  .arcade-visual .project-wordmark {
+    max-width: 62%;
+    font-size: clamp(3.3rem, 15vw, 5.2rem);
+  }
+
   .footer-links {
     gap: 14px 18px;
   }
@@ -205,17 +264,30 @@
 
 @media (max-width: 420px) {
   .brand-mini {
-    font-size: 1.45rem;
+    font-size: 1.4rem;
   }
 
-  .nav {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+  .site-header {
+    padding-inline: 16px;
   }
 
-  .nav-linkedin,
   .nav-cta {
-    width: 100%;
+    padding-inline: 9px;
+    font-size: .64rem;
+  }
+
+  .project-visual,
+  .featured .project-visual {
+    min-height: 245px;
+  }
+
+  .project-wordmark {
+    font-size: clamp(3.2rem, 18vw, 4.6rem);
+  }
+
+  .product-chip,
+  .tech-chip {
+    white-space: normal;
   }
 
   .project-links {
@@ -226,8 +298,20 @@
     grid-column: auto;
   }
 
-  .tech-chip {
-    white-space: normal;
+  .arcade-visual .cabinet {
+    width: 106px;
+    height: 153px;
+    top: 23%;
+  }
+
+  .arcade-visual .cabinet .screen {
+    height: 77px;
+    font-size: .58rem;
+  }
+
+  .arcade-visual .project-wordmark {
+    max-width: 60%;
+    font-size: clamp(3rem, 17vw, 4rem);
   }
 }
 

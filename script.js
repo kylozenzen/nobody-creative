@@ -27,6 +27,19 @@ function projectVisualMarkup(project) {
   return visuals[project.visual] || `${common}${wordmark}`;
 }
 
+function projectTagsMarkup(project) {
+  if (!project.productTags?.length) return '';
+
+  const chips = project.productTags
+    .map((item) => `<span class="product-chip">${escapeHtml(item)}</span>`)
+    .join('');
+
+  return `
+    <div class="product-tags" aria-label="${escapeHtml(project.title)} project tags">
+      ${chips}
+    </div>`;
+}
+
 function projectStackMarkup(project) {
   if (!project.stack?.length) return '';
 
@@ -36,7 +49,7 @@ function projectStackMarkup(project) {
 
   return `
     <div class="tech-stack" aria-label="${escapeHtml(project.title)} tech stack">
-      <span class="tech-stack-label mono">STACK</span>
+      <span class="tech-stack-label mono">BUILT WITH</span>
       <div class="tech-stack-list">${chips}</div>
     </div>`;
 }
@@ -45,8 +58,9 @@ function projectLinksMarkup(project) {
   const links = [];
 
   if (project.url) {
+    const actionLabel = project.actionLabel || 'OPEN';
     links.push(
-      `<a class="project-link project-link-primary" href="${escapeHtml(project.url)}" target="_blank" rel="noreferrer" aria-label="Open ${escapeHtml(project.title)} live site">LIVE SITE ↗</a>`
+      `<a class="project-link project-link-primary" href="${escapeHtml(project.url)}" target="_blank" rel="noreferrer" aria-label="${escapeHtml(actionLabel)} ${escapeHtml(project.title)}">${escapeHtml(actionLabel)} ↗</a>`
     );
   }
 
@@ -83,6 +97,7 @@ function renderProjects(projects = []) {
           <div class="project-meta"><span>${escapeHtml(project.meta)}</span><span class="status${statusClass}">${escapeHtml(project.status)}</span></div>
           <h3>${escapeHtml(project.title)}</h3>
           <p>${escapeHtml(project.description)}</p>
+          ${projectTagsMarkup(project)}
           ${projectStackMarkup(project)}
           ${projectLinksMarkup(project)}
         </div>

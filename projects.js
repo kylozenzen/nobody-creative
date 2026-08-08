@@ -9,7 +9,8 @@
   3. Choose one or more categories: game, app, tool, experiment.
   4. Pick a visual key that already exists in script.js/CSS, or add a new visual renderer later.
   5. Add a url when the project is live, plus repoUrl when the source is public.
-  6. Add a short stack array for the tech shown on the card.
+  6. Add productTags for what the thing is and stack for how it was built.
+  7. actionLabel controls the primary CTA for live projects.
 
   featured: true makes the card span two columns on desktop.
   hidden: true keeps the project data/code available without rendering a card.
@@ -26,10 +27,11 @@ window.NOBODY_PROJECTS = [
     status: 'Live',
     statusClass: 'status-live',
     description: 'Terrible movie descriptions. Suspicious VHS tapes. One job: figure out what the hell the movie is.',
-    tags: 'WEB GAME / MOBILE-FRIENDLY',
+    productTags: ['TRIVIA', 'WEB GAME', 'MOBILE-FRIENDLY'],
     stack: ['HTML', 'CSS', 'JavaScript', 'PWA'],
     visual: 'plot',
     featured: true,
+    actionLabel: 'PLAY',
     url: 'https://plot-twisted.netlify.app',
     repoUrl: 'https://github.com/kylozenzen/plot-twisted-2026'
   },
@@ -43,10 +45,11 @@ window.NOBODY_PROJECTS = [
     status: 'Live',
     statusClass: 'status-live',
     description: 'A fitness tracker built around showing up, doing the work, and making progress visible without turning your life into a spreadsheet.',
-    tags: 'PRODUCT / FITNESS',
+    productTags: ['FITNESS', 'LOCAL-FIRST', 'NO ACCOUNT'],
     stack: ['HTML', 'CSS', 'JavaScript', 'PWA'],
     visual: 'moved',
     featured: false,
+    actionLabel: 'OPEN APP',
     url: 'https://moved-app.netlify.app',
     repoUrl: 'https://github.com/kylozenzen/power-rangers-move'
   },
@@ -60,10 +63,11 @@ window.NOBODY_PROJECTS = [
     status: 'Live',
     statusClass: 'status-live',
     description: 'Daily structure without the productivity guilt trip. Tasks, routines, planning, and the boring stuff made pleasantly usable.',
-    tags: 'PRODUCTIVITY / LIFE',
+    productTags: ['LIFE ORGANIZER', 'PRODUCTIVITY', 'PWA'],
     stack: ['HTML', 'CSS', 'JavaScript', 'PWA'],
     visual: 'steady',
     featured: false,
+    actionLabel: 'OPEN APP',
     url: 'https://steady-app.netlify.app',
     repoUrl: 'https://github.com/kylozenzen/steady-as-she-goes'
   },
@@ -77,10 +81,11 @@ window.NOBODY_PROJECTS = [
     status: 'Live',
     statusClass: 'status-live',
     description: 'A social publishing sidekick for writing, splitting, repurposing, planning, and getting posts out of your head and into the world.',
-    tags: 'OPEN BUILD',
+    productTags: ['SOCIAL MEDIA', 'BUFFER COMPANION', 'CREATOR TOOL'],
     stack: ['JavaScript', 'Buffer API', 'Netlify Functions', 'Upstash'],
     visual: 'postiq',
     featured: false,
+    actionLabel: 'OPEN POSTIQ',
     url: 'https://postiq.netlify.app/',
     repoUrl: 'https://github.com/kylozenzen/post-iq'
   },
@@ -94,7 +99,7 @@ window.NOBODY_PROJECTS = [
     status: 'Coming soon',
     statusClass: 'status-orange',
     description: 'The home for every tiny browser game that gets built instead of sleeping at a reasonable hour.',
-    tags: 'HUB / GAME LAB',
+    productTags: ['ARCADE', 'GAME HUB', 'MOBILE + DESKTOP'],
     stack: ['HTML', 'CSS', 'JavaScript', 'PWA'],
     visual: 'arcade',
     featured: false,
