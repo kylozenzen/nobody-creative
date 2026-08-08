@@ -1,319 +1,63 @@
 /* --- VISUAL WORK / THE CREATIVE DEPARTMENT --- */
+.visual-preview{background:var(--paper-2);border-block:1px solid var(--ink)}
+.visual-preview-heading,.visual-gallery-heading{display:grid;grid-template-columns:1.15fr .85fr;align-items:end;gap:40px;padding-bottom:24px;border-bottom:1px solid var(--ink)}
+.visual-preview-heading h2,.visual-gallery-heading h2{margin:0;font-family:"Bebas Neue",Impact,sans-serif;font-size:clamp(4rem,8vw,8rem);font-weight:400;line-height:.84}
+.visual-preview-heading>p,.visual-gallery-heading>p{max-width:560px;margin:0 0 6px;justify-self:end;font-size:1.05rem;line-height:1.6}
+.visual-preview-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:30px}
+.visual-preview-card,.visual-card{min-width:0;margin:0}
+.visual-preview-card{display:block;color:inherit}
+.visual-preview-card figure{margin:0}
+.visual-preview-image,.visual-image{position:relative;overflow:hidden;background:#ddd8cf;border:1px solid var(--ink);aspect-ratio:2/3}
+.visual-preview-image{box-shadow:7px 7px 0 var(--ink);transition:transform .18s ease,box-shadow .18s ease}
+.visual-preview-card:nth-child(2) .visual-preview-image{transform:translateY(14px) rotate(.65deg)}
+.visual-preview-card:nth-child(3) .visual-preview-image{transform:rotate(-.7deg)}
+.visual-preview-card:hover .visual-preview-image{transform:translate(-2px,-4px) rotate(0);box-shadow:10px 10px 0 var(--spark)}
+.visual-preview-image img,.visual-image img{display:block;width:100%;height:100%;object-fit:cover}
+.visual-preview-card figcaption,.visual-card figcaption{padding-top:16px}
+.visual-preview-card figcaption span,.visual-card figcaption span{display:block;margin-bottom:6px;font-size:.62rem;font-weight:700;letter-spacing:.06em}
+.visual-preview-card h3,.visual-card h3{margin:0;font-family:"Bebas Neue",Impact,sans-serif;font-weight:400;line-height:.95;letter-spacing:.015em}
+.visual-preview-card h3{font-size:clamp(2.2rem,3vw,3.4rem)}
+.visual-preview-actions{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:46px;padding-top:22px;border-top:1px solid var(--ink)}
+.visual-preview-actions p{margin:0;max-width:620px;line-height:1.55}
 
-.visual-preview {
-  background: var(--paper-2);
-  border-block: 1px solid var(--ink);
+/* Full Visual Work page */
+.visual-hero{padding-top:clamp(110px,11vw,165px);padding-bottom:clamp(70px,8vw,110px)}
+.visual-hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(40px,7vw,100px);align-items:end}
+.visual-hero h1{margin:0;font-family:"Bebas Neue",Impact,sans-serif;font-weight:400;font-size:clamp(5.2rem,11vw,11rem);line-height:.76;letter-spacing:-.025em}
+.visual-hero h1 span{color:var(--spark)}
+.visual-hero-copy{max-width:610px;justify-self:end}
+.visual-hero-copy p{margin:0 0 18px;line-height:1.65}
+.visual-hero-copy .visual-lead{font-size:clamp(1.2rem,1.8vw,1.55rem);color:var(--ink);font-weight:650}
+.spec-note{padding-top:16px;border-top:1px solid var(--ink);font-size:.62rem;font-weight:700;letter-spacing:.05em;color:#555}
+.visual-gallery-shell{padding-top:0}
+.visual-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(28px,3vw,46px) 20px;margin-top:32px}
+.visual-image{box-shadow:6px 6px 0 var(--ink);transition:transform .2s ease,box-shadow .2s ease}
+.visual-card:nth-child(3n+2) .visual-image{transform:translateY(10px)}
+.visual-card:hover .visual-image{transform:translate(-2px,-4px);box-shadow:10px 10px 0 var(--spark)}
+.visual-card h3{font-size:clamp(2rem,2.8vw,3rem)}
+.visual-cta{margin:0 clamp(20px,5vw,80px) clamp(80px,10vw,140px);padding:clamp(42px,6vw,80px);border:1px solid var(--ink);background:var(--acid);box-shadow:12px 12px 0 var(--ink)}
+.visual-cta h2{max-width:900px;margin:0 0 28px;font-family:"Bebas Neue",Impact,sans-serif;font-size:clamp(4rem,8vw,8rem);line-height:.82;font-weight:400}
+.nav a[aria-current="page"]{border-bottom:2px solid var(--spark)}
+
+@media(max-width:900px){
+  .visual-preview-heading,.visual-gallery-heading,.visual-hero-grid{grid-template-columns:1fr}
+  .visual-preview-heading>p,.visual-gallery-heading>p,.visual-hero-copy{justify-self:start}
+  .visual-preview-grid,.visual-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .visual-card:nth-child(3n+2) .visual-image{transform:none}
 }
-
-.visual-preview-heading,
-.visual-gallery-heading {
-  display: grid;
-  grid-template-columns: 1.15fr .85fr;
-  align-items: end;
-  gap: 40px;
-  padding-bottom: 24px;
-  border-bottom: 1px solid var(--ink);
+@media(max-width:760px){
+  .visual-preview{padding-top:76px;padding-bottom:82px}
+  .visual-preview-grid{display:flex;gap:16px;overflow-x:auto;margin-inline:-20px;padding:4px 20px 14px;scroll-snap-type:x mandatory;scrollbar-width:none}
+  .visual-preview-grid::-webkit-scrollbar{display:none}
+  .visual-preview-card{flex:0 0 min(78vw,340px);scroll-snap-align:start}
+  .visual-preview-card:nth-child(2) .visual-preview-image,.visual-preview-card:nth-child(3) .visual-preview-image{transform:none}
+  .visual-preview-actions{align-items:flex-start;flex-direction:column;margin-top:30px}
+  .visual-hero{padding-top:72px}
+  .visual-hero h1{font-size:clamp(5.2rem,24vw,8rem)}
+  .visual-grid{grid-template-columns:1fr;gap:34px}
+  .visual-image{box-shadow:5px 5px 0 var(--ink)}
+  .visual-card h3{font-size:2.55rem}
 }
-
-.visual-preview-heading h2,
-.visual-gallery-heading h2 {
-  margin: 0;
-  font-family: "Bebas Neue", Impact, sans-serif;
-  font-size: clamp(4rem, 8vw, 8rem);
-  font-weight: 400;
-  line-height: .84;
-}
-
-.visual-preview-heading > p,
-.visual-gallery-heading > p {
-  max-width: 560px;
-  margin: 0 0 6px;
-  justify-self: end;
-  font-size: 1.05rem;
-  line-height: 1.6;
-}
-
-.visual-preview-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
-  margin-top: 30px;
-}
-
-.visual-preview-card,
-.visual-card {
-  min-width: 0;
-  margin: 0;
-}
-
-.visual-preview-card {
-  display: block;
-  color: inherit;
-}
-
-.visual-preview-image,
-.visual-image {
-  position: relative;
-  overflow: hidden;
-  background: #ddd8cf;
-  border: 1px solid var(--ink);
-}
-
-.visual-preview-image {
-  aspect-ratio: 2 / 3;
-  box-shadow: 7px 7px 0 var(--ink);
-  transition: transform .18s ease, box-shadow .18s ease;
-}
-
-.visual-preview-card:nth-child(2) .visual-preview-image {
-  transform: translateY(14px) rotate(.65deg);
-}
-
-.visual-preview-card:nth-child(3) .visual-preview-image {
-  transform: rotate(-.7deg);
-}
-
-.visual-preview-card:hover .visual-preview-image {
-  transform: translate(-2px, -4px) rotate(0);
-  box-shadow: 10px 10px 0 var(--spark);
-}
-
-.visual-preview-image img,
-.visual-image img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.visual-preview-card figcaption,
-.visual-card figcaption {
-  padding-top: 16px;
-}
-
-.visual-preview-card figcaption span,
-.visual-card figcaption span {
-  display: block;
-  margin-bottom: 6px;
-  font-size: .62rem;
-  font-weight: 700;
-  letter-spacing: .06em;
-}
-
-.visual-preview-card h3,
-.visual-card h3 {
-  margin: 0;
-  font-family: "Bebas Neue", Impact, sans-serif;
-  font-weight: 400;
-  line-height: .95;
-  letter-spacing: .015em;
-}
-
-.visual-preview-card h3 {
-  font-size: clamp(2.2rem, 3vw, 3.4rem);
-}
-
-.visual-preview-actions {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  margin-top: 46px;
-  padding-top: 22px;
-  border-top: 1px solid var(--ink);
-}
-
-.visual-preview-actions p {
-  margin: 0;
-  max-width: 620px;
-  line-height: 1.55;
-}
-
-/* Full visual-work page */
-.visual-hero {
-  padding-top: clamp(110px, 11vw, 165px);
-  padding-bottom: clamp(70px, 8vw, 110px);
-}
-
-.visual-hero-grid {
-  display: grid;
-  grid-template-columns: 1.15fr .85fr;
-  gap: clamp(40px, 7vw, 100px);
-  align-items: end;
-}
-
-.visual-hero h1 {
-  margin: 0;
-  font-family: "Bebas Neue", Impact, sans-serif;
-  font-weight: 400;
-  font-size: clamp(5.2rem, 11vw, 11rem);
-  line-height: .76;
-  letter-spacing: -.025em;
-}
-
-.visual-hero h1 span {
-  color: var(--spark);
-}
-
-.visual-hero-copy {
-  max-width: 610px;
-  justify-self: end;
-}
-
-.visual-hero-copy p {
-  margin: 0 0 18px;
-  line-height: 1.65;
-}
-
-.visual-hero-copy .visual-lead {
-  font-size: clamp(1.2rem, 1.8vw, 1.55rem);
-  color: var(--ink);
-  font-weight: 650;
-}
-
-.spec-note {
-  padding-top: 16px;
-  border-top: 1px solid var(--ink);
-  font-size: .62rem;
-  font-weight: 700;
-  letter-spacing: .05em;
-  color: #555;
-}
-
-.visual-gallery-shell {
-  padding-top: 0;
-}
-
-.visual-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(28px, 3vw, 46px) 20px;
-  margin-top: 32px;
-}
-
-.visual-image {
-  aspect-ratio: 2 / 3;
-  box-shadow: 6px 6px 0 var(--ink);
-  transition: transform .2s ease, box-shadow .2s ease;
-}
-
-.visual-card:nth-child(3n + 2) .visual-image {
-  transform: translateY(10px);
-}
-
-.visual-card:hover .visual-image {
-  transform: translate(-2px, -4px);
-  box-shadow: 10px 10px 0 var(--spark);
-}
-
-.visual-card h3 {
-  font-size: clamp(2rem, 2.8vw, 3rem);
-}
-
-.visual-cta {
-  margin: 0 clamp(20px, 5vw, 80px) clamp(80px, 10vw, 140px);
-  padding: clamp(42px, 6vw, 80px);
-  border: 1px solid var(--ink);
-  background: var(--acid);
-  box-shadow: 12px 12px 0 var(--ink);
-}
-
-.visual-cta h2 {
-  max-width: 900px;
-  margin: 0 0 28px;
-  font-family: "Bebas Neue", Impact, sans-serif;
-  font-size: clamp(4rem, 8vw, 8rem);
-  line-height: .82;
-  font-weight: 400;
-}
-
-.nav a[aria-current="page"] {
-  border-bottom: 2px solid var(--spark);
-}
-
-@media (max-width: 900px) {
-  .visual-preview-heading,
-  .visual-gallery-heading,
-  .visual-hero-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .visual-preview-heading > p,
-  .visual-gallery-heading > p,
-  .visual-hero-copy {
-    justify-self: start;
-  }
-
-  .visual-preview-grid,
-  .visual-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .visual-card:nth-child(3n + 2) .visual-image {
-    transform: none;
-  }
-}
-
-@media (max-width: 760px) {
-  .visual-preview {
-    padding-top: 76px;
-    padding-bottom: 82px;
-  }
-
-  .visual-preview-grid {
-    display: flex;
-    gap: 16px;
-    overflow-x: auto;
-    margin-inline: -20px;
-    padding: 4px 20px 14px;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-  }
-
-  .visual-preview-grid::-webkit-scrollbar { display: none; }
-
-  .visual-preview-card {
-    flex: 0 0 min(78vw, 340px);
-    scroll-snap-align: start;
-  }
-
-  .visual-preview-card:nth-child(2) .visual-preview-image,
-  .visual-preview-card:nth-child(3) .visual-preview-image {
-    transform: none;
-  }
-
-  .visual-preview-actions {
-    align-items: flex-start;
-    flex-direction: column;
-    margin-top: 30px;
-  }
-
-  .visual-hero {
-    padding-top: 72px;
-  }
-
-  .visual-hero h1 {
-    font-size: clamp(5.2rem, 24vw, 8rem);
-  }
-
-  .visual-grid {
-    grid-template-columns: 1fr;
-    gap: 34px;
-  }
-
-  .visual-image {
-    box-shadow: 5px 5px 0 var(--ink);
-  }
-
-  .visual-card h3 {
-    font-size: 2.55rem;
-  }
-}
-
-@media (hover: none) {
-  .visual-preview-card:hover .visual-preview-image,
-  .visual-card:hover .visual-image {
-    transform: none;
-    box-shadow: 6px 6px 0 var(--ink);
-  }
+@media(hover:none){
+  .visual-preview-card:hover .visual-preview-image,.visual-card:hover .visual-image{transform:none;box-shadow:6px 6px 0 var(--ink)}
 }
