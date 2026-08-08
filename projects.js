@@ -62,7 +62,7 @@ window.NOBODY_PROJECTS = [
     meta: 'Life organizer',
     status: 'Live',
     statusClass: 'status-live',
-    description: 'Daily structure without the productivity guilt trip. Tasks, routines, planning, and the boring stuff made pleasantly usable.',
+    description: 'Food journal without the chaos. Fast food substitutes because real life happens. Track important macros with ease - like protien, calories, and water intake.',
     productTags: ['LIFE ORGANIZER', 'PRODUCTIVITY', 'PWA'],
     stack: ['HTML', 'CSS', 'JavaScript', 'PWA'],
     visual: 'steady',
