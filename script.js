@@ -18,6 +18,7 @@ function projectVisualMarkup(project) {
     moved: `${common}<div class="rings" aria-hidden="true"><i></i><i></i><i></i></div>${wordmark}`,
     steady: `${common}<div class="steady-lines" aria-hidden="true"><i></i><i></i><i></i><i></i></div>${wordmark}`,
     postiq: `${common}<div class="terminal-lines mono" aria-hidden="true"><span>&gt; write</span><span>&gt; split</span><span>&gt; repurpose</span><span>&gt; ship_</span></div>${wordmark}`,
+    uplink: `${common}<div class="uplink-radar" aria-hidden="true"><i></i><i></i><i></i><b></b></div><div class="uplink-signal mono" aria-hidden="true"><span>BUFFER: ARMED</span><span>TWITCH: LINKED</span><span>TRANSMIT_</span></div>${wordmark}`,
     stamp: `${common}<div class="stamp-box">APPROVED<br><small>BY SOMEONE, PROBABLY</small></div>${wordmark}`,
     whiteout: `${common}<div class="mountain" aria-hidden="true"></div>${wordmark}`,
     breath: `${common}<div class="breath-orb" aria-hidden="true">☁</div>${wordmark}`,
